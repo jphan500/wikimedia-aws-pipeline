@@ -1,0 +1,34 @@
+name: terraform
+on:
+  pull_request:
+    paths: ["infra/envs/**"]
+  push:
+    branches: [main]
+    paths: ["infra/envs/**"]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra/envs/dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~> 1.10"
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: us-east-2
+      - run: terraform fmt -check
+      - run: terraform init
+      - run: terraform validate
+      - run: terraform plan -input=false
+      - name: apply
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve -input=false
