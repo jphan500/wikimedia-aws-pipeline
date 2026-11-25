@@ -1,0 +1,19 @@
+name: python
+on:
+  pull_request:
+    paths: ["src/**", "tests/**", "pytest.ini", ".github/workflows/python.yml"]
+  push:
+    branches: [main]
+    paths: ["src/**", "tests/**", "pytest.ini", ".github/workflows/python.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest ruff
+      - run: ruff check src tests
+      - run: pytest
