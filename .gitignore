@@ -3,3 +3,5 @@
 *.tfvars
 .env
 __pycache__/
+.venv/
+.build/
