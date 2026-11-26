@@ -5,7 +5,7 @@ variable "user_agent" {
 
 variable "ingest_enabled" {
   type    = bool
-  default = false
+  default = true
 }
 
 # Provisioned 1/1 stays inside DynamoDB's always-free capacity
