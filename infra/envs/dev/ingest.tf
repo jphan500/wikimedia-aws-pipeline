@@ -94,7 +94,7 @@ resource "aws_lambda_function" "ingest" {
 resource "aws_cloudwatch_event_rule" "ingest_schedule" {
   name                = "${var.project}-ingest-schedule"
   schedule_expression = "rate(5 minutes)"
-  state               = var.ingest_enabled ? "ENABLED" : "DISABLED"
+  state               = var.ingest_enabled ? "ENABLED" : "TRUE"
 }
 
 resource "aws_cloudwatch_event_target" "ingest" {
