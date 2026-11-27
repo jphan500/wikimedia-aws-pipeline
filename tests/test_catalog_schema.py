@@ -17,7 +17,7 @@ ARROW_TO_GLUE = {
 
 def glue_columns():
     text = CATALOG.read_text(encoding="utf-8")
-    block = re.search(r"silver_columns\s*=\s*\[(.*?)\n\s*\]", text, re.S).group(1)
+    block = re.search(r"silver_columns\s*=\s*\[(.*?)\n\s*\]", text, re.DOTALL).group(1)
     return re.findall(r'name\s*=\s*"(\w+)",\s*type\s*=\s*"(\w+)"', block)
 
 
