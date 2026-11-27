@@ -1,10 +1,12 @@
+# Runs ruff and pytest on every change to code, tests or the catalog definition.
+
 name: python
 on:
   pull_request:
-    paths: ["src/**", "tests/**", "pytest.ini", ".github/workflows/python.yml"]
+    paths: ["src/**", "tests/**", "pytest.ini", "infra/envs/dev/catalog.tf", ".github/workflows/python.yml"]
   push:
     branches: [main]
-    paths: ["src/**", "tests/**", "pytest.ini", ".github/workflows/python.yml"]
+    paths: ["src/**", "tests/**", "pytest.ini", "infra/envs/dev/catalog.tf", ".github/workflows/python.yml"]
 
 jobs:
   test:

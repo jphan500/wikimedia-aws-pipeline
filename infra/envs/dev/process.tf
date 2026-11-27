@@ -1,3 +1,5 @@
+# Processing path: S3-triggered processing Lambda, dead-letter queue and retry config.
+
 variable "target_wiki" {
   type    = string
   default = "enwiki"

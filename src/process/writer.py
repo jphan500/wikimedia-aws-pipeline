@@ -1,3 +1,5 @@
+"""Defines the silver Parquet schema and serializes rows to Parquet bytes."""
+
 import io
 
 import pyarrow as pa

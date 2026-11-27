@@ -1,3 +1,7 @@
+"""Processing Lambda: runs on each new raw batch; writes valid English rows to silver
+Parquet and bad rows to quarantine."""   
+
+
 import gzip
 import json
 import os

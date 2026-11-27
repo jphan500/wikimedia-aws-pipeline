@@ -1,3 +1,5 @@
+# Runs fmt/validate/plan on PRs and apply on merge to main, authenticating to AWS via OIDC.
+
 name: terraform
 on:
   pull_request:
