@@ -5,7 +5,7 @@ variable "target_wiki" {
 
 variable "sdk_pandas_layer_arn" {
   type    = string
-  default = "PASTE_YOUR_LAYER_ARN_HERE"
+  default = "arn:aws:lambda:us-east-2:336392948345:layer:AWSSDKPandas-Python312:32"
 }
 
 resource "aws_sqs_queue" "process_dlq" {
