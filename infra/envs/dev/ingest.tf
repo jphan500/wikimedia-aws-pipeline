@@ -1,3 +1,5 @@
+# Ingest path: checkpoint table, ingest Lambda, its least-privilege IAM role, and the 5-minute schedule.
+
 variable "user_agent" {
   type    = string
   default = "wikimedia-aws-pipeline/0.1 (https://github.com/jphan500/wikimedia-aws-pipeline)"

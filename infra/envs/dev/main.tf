@@ -1,3 +1,5 @@
+# Core stack: remote-state backend, the data lake bucket (encryption, lifecycle) and the monthly budget alarm.
+
 terraform {
   required_version = ">= 1.10"
   required_providers {
@@ -61,6 +63,16 @@ resource "aws_s3_bucket_lifecycle_configuration" "lake" {
     }
     expiration {
       days = 30
+    }
+  }
+  rule {
+    id     = "expire-athena-results"
+    status = "Enabled"
+    filter {
+      prefix = "athena-results/"
+    }
+    expiration {
+      days = 7
     }
   }
 }

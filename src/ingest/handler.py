@@ -1,3 +1,6 @@
+"""Ingest Lambda: reads the Wikimedia stream from the last checkpoint until caught up,
+writes one raw batch to S3, then advances the checkpoint."""  
+
 import gzip
 import http.client
 import json
